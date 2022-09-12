@@ -1,16 +1,7 @@
-# cripto
+# cripto - Card 2
 
-A new Flutter project.
+Projeto de uma página de uma carteira de cripto moedas. Ao clicar no ícone de um olho os valores monetários devem ficar borrados. O Widget em baixo é uma bottonNavigationBar, que faz uma navegação para uma página ainda não implementada. 
 
-## Getting Started
+## Imagem do figma
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Portifólio](images/Portf%C3%B3lio.png)
