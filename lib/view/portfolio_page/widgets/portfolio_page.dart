@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:decimal/decimal.dart';
+import 'package:decimal/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -13,13 +15,14 @@ class PortfolioPage extends StatefulWidget {
 class _PortfolioPageState extends State<PortfolioPage> {
   bool visible = true;
 
-  final userMoneyBitcoin = 6557;
-  final userMoneyEthereum = 7996;
-  final userMoneylitecoin = 245;
+  final userAmountBitcoin = Decimal.parse('0.65');
+  final userAmountEthereum = Decimal.parse('0.94');
+  final userAmountlitecoin = Decimal.parse('0.82');
 
-  final bitcoinValue = 113996.3;
-  final ethereumValue = 8906.66;
-  final litecoinValue = 315.52;
+  // Valores de 13/09/222
+  final bitcoinValue = Decimal.parse('109521.93');
+  final ethereumValue = Decimal.parse('8316.04');
+  final litecoinValue = Decimal.parse('328,57');
 
   final numberFormat = NumberFormat.currency(
     locale: "pt_BR",
@@ -29,8 +32,11 @@ class _PortfolioPageState extends State<PortfolioPage> {
 
   @override
   Widget build(BuildContext context) {
+    final userMoneyBitcoin = userAmountBitcoin * bitcoinValue;
+    final userMoneyEthereum = userAmountEthereum * ethereumValue;
+    final userMoneylitecoin = userAmountlitecoin * litecoinValue;
     final userTotalMoney =
-        userMoneyBitcoin + userMoneyEthereum + userMoneylitecoin;
+        userMoneyBitcoin + userMoneyEthereum + userAmountlitecoin;
     return Scaffold(
       body: Column(
         children: [
@@ -78,7 +84,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                           sigmaY: 15,
                         ),
                         child: Text(
-                          numberFormat.format(userTotalMoney),
+                          numberFormat.format(DecimalIntl(userTotalMoney)),
                           style: const TextStyle(
                             fontSize: 35,
                             fontWeight: FontWeight.bold,
@@ -86,7 +92,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                         ),
                       ),
                       child: Text(
-                        numberFormat.format(userTotalMoney),
+                        numberFormat.format(DecimalIntl(userTotalMoney)),
                         style: const TextStyle(
                           fontSize: 35,
                           fontWeight: FontWeight.bold,
@@ -136,18 +142,19 @@ class _PortfolioPageState extends State<PortfolioPage> {
                               sigmaY: 15,
                             ),
                             child: Text(
-                              numberFormat.format(userMoneyBitcoin),
+                              numberFormat
+                                  .format(DecimalIntl(userMoneyBitcoin)),
                               style: const TextStyle(fontSize: 20),
                             ),
                           ),
                           child: Text(
-                            numberFormat.format(userMoneyBitcoin),
+                            numberFormat.format(DecimalIntl(userMoneyBitcoin)),
                             style: const TextStyle(fontSize: 20),
                           ),
                         ),
                         const SizedBox(height: 5),
                         Text(
-                          "${(userMoneyBitcoin / bitcoinValue).toStringAsFixed(2)} BTC",
+                          "${userAmountBitcoin.toStringAsFixed(2)} BTC",
                           style: const TextStyle(
                             color: Colors.black54,
                             fontSize: 15,
@@ -206,18 +213,19 @@ class _PortfolioPageState extends State<PortfolioPage> {
                               sigmaY: 15,
                             ),
                             child: Text(
-                              numberFormat.format(userMoneyEthereum),
+                              numberFormat
+                                  .format(DecimalIntl(userMoneyEthereum)),
                               style: const TextStyle(fontSize: 20),
                             ),
                           ),
                           child: Text(
-                            numberFormat.format(userMoneyEthereum),
+                            numberFormat.format(DecimalIntl(userMoneyEthereum)),
                             style: const TextStyle(fontSize: 20),
                           ),
                         ),
                         const SizedBox(height: 5),
                         Text(
-                          "${(userMoneyEthereum / ethereumValue).toStringAsFixed(2)} ETH",
+                          "${userAmountEthereum.toStringAsFixed(2)} ETH",
                           style: const TextStyle(
                             color: Colors.black54,
                             fontSize: 15,
@@ -273,18 +281,19 @@ class _PortfolioPageState extends State<PortfolioPage> {
                               sigmaY: 15,
                             ),
                             child: Text(
-                              numberFormat.format(userMoneylitecoin),
+                              numberFormat
+                                  .format(DecimalIntl(userMoneylitecoin)),
                               style: const TextStyle(fontSize: 20),
                             ),
                           ),
                           child: Text(
-                            numberFormat.format(userMoneylitecoin),
+                            numberFormat.format(DecimalIntl(userMoneylitecoin)),
                             style: const TextStyle(fontSize: 20),
                           ),
                         ),
                         const SizedBox(height: 5),
                         Text(
-                          "${(userMoneylitecoin / litecoinValue).toStringAsFixed(2)} LTC",
+                          "${userAmountlitecoin.toStringAsFixed(2)} LTC",
                           style: const TextStyle(
                             color: Colors.black54,
                             fontSize: 15,
