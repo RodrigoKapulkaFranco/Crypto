@@ -10,9 +10,3 @@ Foi realizada a extração de diversos widgets do projeto. Também houve a imple
 
 ## Link do figma: https://www.figma.com/file/aB3rbJ4RaCxBnG3SOCalgQ/Desafio-de-Flutter?node-id=0%3A1
 
-## Imagens do projeto
-
-![portifólio-visible](images\screenshots-projeto\portifolio-visible.png)
-![portifolio-not-visible](images\screenshots-projeto\portifolio-not-visible.png)
-![movimentações](images\screenshots-projeto\movements.png)
-
