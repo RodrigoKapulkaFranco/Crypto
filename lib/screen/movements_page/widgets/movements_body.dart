@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-class MovementsPage extends StatelessWidget {
-  const MovementsPage({Key? key}) : super(key: key);
+class MovementesBody extends StatelessWidget {
+  const MovementesBody({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

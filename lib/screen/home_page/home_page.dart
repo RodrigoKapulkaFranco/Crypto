@@ -1,6 +1,7 @@
-import 'package:cripto/view/movements_page/movements_page.dart';
-import 'package:cripto/view/portfolio_page/widgets/portfolio_page.dart';
 import 'package:flutter/material.dart';
+
+import '../movements_page/movements_page.dart';
+import '../portfolio_page/widgets/portfolio_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -36,7 +37,9 @@ class _HomePageState extends State<HomePage> {
             label: 'Portifólio',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage("images/COIN.png")),
+            icon: ImageIcon(
+              AssetImage("images/COIN.png"),
+            ),
             label: 'Movimentações',
           ),
         ],
