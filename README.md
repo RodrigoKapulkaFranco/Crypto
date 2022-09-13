@@ -12,7 +12,7 @@ Foi realizada a extração de diversos widgets do projeto. Também houve a imple
 
 ## Imagens do projeto
 
-![portifólio-visible][images\screenshots-projeto\portifolio-visible.png]
-![portifolio-not-visible][images\screenshots-projeto\portifolio-not-visible.png]
-![movimentações][images\screenshots-projeto\movements.png]
+![portifólio-visible](images\screenshots-projeto\portifolio-visible.png)
+![portifolio-not-visible](images\screenshots-projeto\portifolio-not-visible.png)
+![movimentações](images\screenshots-projeto\movements.png)
 
