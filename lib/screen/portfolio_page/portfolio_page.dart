@@ -1,7 +1,7 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 
-import 'portifolio_body.dart';
+import 'widgets/portifolio_body.dart';
 
 class PortfolioPage extends StatelessWidget {
   const PortfolioPage({Key? key}) : super(key: key);

@@ -61,7 +61,7 @@ class TotalUserMoneyDisplay extends HookConsumerWidget {
                     sigmaY: 15,
                   ),
                   child: Text(
-                    ref.watch(numberFormatProvider).format(
+                    numberFormat.format(
                           DecimalIntl(userTotalMoney),
                         ),
                     style: const TextStyle(
@@ -71,7 +71,7 @@ class TotalUserMoneyDisplay extends HookConsumerWidget {
                   ),
                 ),
                 child: Text(
-                  ref.watch(numberFormatProvider).format(
+                  numberFormat.format(
                         DecimalIntl(userTotalMoney),
                       ),
                   style: const TextStyle(

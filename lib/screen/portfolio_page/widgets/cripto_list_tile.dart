@@ -48,16 +48,16 @@ class CriptoListTile extends HookConsumerWidget {
                     sigmaY: 15,
                   ),
                   child: Text(
-                    ref.watch(numberFormatProvider).format(
-                          DecimalIntl(userMoneyBitcoin),
-                        ),
+                    numberFormat.format(
+                      DecimalIntl(userMoneyBitcoin),
+                    ),
                     style: const TextStyle(fontSize: 20),
                   ),
                 ),
                 child: Text(
-                  ref.watch(numberFormatProvider).format(
-                        DecimalIntl(userMoneyBitcoin),
-                      ),
+                  numberFormat.format(
+                    DecimalIntl(userMoneyBitcoin),
+                  ),
                   style: const TextStyle(fontSize: 20),
                 ),
               ),

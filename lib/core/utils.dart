@@ -5,10 +5,8 @@ final visibleProvider = StateProvider(
   (ref) => true,
 );
 
-final numberFormatProvider = StateProvider(
-  (ref) => NumberFormat.currency(
-    locale: "pt_BR",
-    decimalDigits: 2,
-    name: "R\$",
-  ),
+final numberFormat = NumberFormat.currency(
+  locale: "pt_BR",
+  decimalDigits: 2,
+  name: "R\$",
 );
