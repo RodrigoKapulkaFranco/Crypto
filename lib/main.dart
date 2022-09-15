@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'portifolio/view/portfolio_page.dart';
+import 'shared/utils/route_definitions.dart';
 
 
 void main() {
@@ -13,11 +13,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ProviderScope(
+    return ProviderScope(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Cripto',
-        home: PortfolioPage(),
+        initialRoute: '/portifolio',
+        routes: routes,
       ),
     );
   }
