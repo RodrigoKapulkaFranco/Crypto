@@ -33,12 +33,12 @@ void main() {
       expect(find.text('Litecoin'), findsOneWidget);
 
       await tester.tap(find.text("Movimentações"));
-      await tester.pump();
+      await tester.pumpAndSettle();
 
       expect(find.text('Ainda não implementado'), findsOneWidget);
 
       await tester.tap(find.text("Portifólio"));
-      await tester.pump();
+      await tester.pumpAndSettle();
 
       expect(find.text('Cripto'), findsOneWidget);
       expect(find.text('Valor total de moedas'), findsOneWidget);
