@@ -40,12 +40,7 @@ class CustomBottomNavigatorBar extends StatelessWidget {
         ),
       ],
       currentIndex: selectedIndex,
-      selectedItemColor: const Color.fromRGBO(
-        224,
-        43,
-        87,
-        1,
-      ),
+      selectedItemColor: Theme.of(context).primaryColor,
       onTap: onItemTapped,
       selectedLabelStyle: const TextStyle(
         color: Colors.blue,

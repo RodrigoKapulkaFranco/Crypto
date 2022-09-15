@@ -35,10 +35,10 @@ class TotalUserMoneyDisplay extends HookConsumerWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     "Cripto",
                     style: TextStyle(
-                      color: Color.fromRGBO(224, 43, 87, 1),
+                      color: Theme.of(context).primaryColor,
                       fontSize: 35,
                       fontWeight: FontWeight.bold,
                     ),
