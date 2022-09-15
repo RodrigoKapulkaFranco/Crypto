@@ -5,7 +5,8 @@ import 'package:decimal/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../core/utils.dart';
+import '../../shared/utils/utils.dart';
+import '../provider/utils.dart';
 
 class TotalUserMoneyDisplay extends HookConsumerWidget {
   final Decimal userTotalMoney;
@@ -61,9 +62,9 @@ class TotalUserMoneyDisplay extends HookConsumerWidget {
                     sigmaY: 15,
                   ),
                   child: Text(
-                    ref.watch(numberFormatProvider).format(
-                          DecimalIntl(userTotalMoney),
-                        ),
+                    numberFormat.format(
+                      DecimalIntl(userTotalMoney),
+                    ),
                     style: const TextStyle(
                       fontSize: 35,
                       fontWeight: FontWeight.bold,
@@ -71,9 +72,9 @@ class TotalUserMoneyDisplay extends HookConsumerWidget {
                   ),
                 ),
                 child: Text(
-                  ref.watch(numberFormatProvider).format(
-                        DecimalIntl(userTotalMoney),
-                      ),
+                  numberFormat.format(
+                    DecimalIntl(userTotalMoney),
+                  ),
                   style: const TextStyle(
                     fontSize: 35,
                     fontWeight: FontWeight.bold,
