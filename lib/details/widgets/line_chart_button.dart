@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../utils/providers.dart';
+import '../utils/providers/providers.dart';
 
 class LineChartButton extends HookConsumerWidget {
   final int days;
