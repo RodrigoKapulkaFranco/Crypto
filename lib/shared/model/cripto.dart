@@ -1,15 +1,14 @@
 import 'package:decimal/decimal.dart';
-import 'package:flutter/cupertino.dart';
 
 class Cripto {
   final String title;
   final String subtitle;
-  final Image image;
+  final String imagePath;
   final Decimal criptoValue;
   Cripto({
     required this.title,
     required this.subtitle,
-    required this.image,
+    required this.imagePath,
     required this.criptoValue,
   });
 

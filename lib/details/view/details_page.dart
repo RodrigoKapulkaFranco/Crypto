@@ -1,6 +1,9 @@
+import 'package:decimal/intl.dart';
 import 'package:flutter/material.dart';
 
+import '../../shared/utils/utils.dart';
 import '../utils/details_arguments.dart';
+import '../widgets/line_chart.dart';
 
 class DetailsPage extends StatelessWidget {
   static const routeName = "/details";
@@ -15,12 +18,46 @@ class DetailsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(arguments.cripto.title),
-            Text(arguments.cripto.subtitle),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  arguments.cripto.title,
+                  style: const TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(30),
+                  child: Image.asset(arguments.cripto.imagePath),
+                ),
+              ],
+            ),
+            Text(
+              arguments.cripto.subtitle,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black45,
+              ),
+            ),
+            Text(
+              numberFormat.format(
+                DecimalIntl(
+                  arguments.cripto.criptoValue,
+                ),
+              ),
+              style: const TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            CriptoLineChart(),
           ],
         ),
       ),

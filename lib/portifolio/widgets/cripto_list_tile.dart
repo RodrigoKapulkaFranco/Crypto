@@ -25,7 +25,7 @@ class CriptoListTile extends HookConsumerWidget {
     return ListTile(
       leading: ClipRRect(
         borderRadius: BorderRadius.circular(30),
-        child: cripto.image,
+        child: Image.asset(cripto.imagePath),
       ),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
