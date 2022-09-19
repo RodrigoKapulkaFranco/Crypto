@@ -1,3 +1,4 @@
+import 'package:decimal/decimal.dart';
 import 'package:decimal/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -127,9 +128,8 @@ class DetailsPage extends HookConsumerWidget {
               title: 'Valor',
               value: numberFormat.format(
                 DecimalIntl(
-                  arguments.cripto.userMoney(
-                    arguments.userAmountCripto,
-                  ),
+                  Decimal.parse(ref.watch(valueCriptoProvider).toString()) *
+                      arguments.userAmountCripto,
                 ),
               ),
             ),
