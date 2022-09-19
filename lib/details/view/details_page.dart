@@ -88,8 +88,8 @@ class DetailsPage extends HookConsumerWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
+            const Padding(
+              padding: EdgeInsets.only(
                 top: 16.0,
               ),
               child: CriptoLineChart(),
