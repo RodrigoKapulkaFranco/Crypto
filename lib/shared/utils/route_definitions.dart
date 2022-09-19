@@ -7,3 +7,5 @@ var routes = {
   "/movements": (context) => const MovementsPage(),
   "/details": (context) => const DetailsPage(),
 };
+
+

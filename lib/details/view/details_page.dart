@@ -20,12 +20,6 @@ class DetailsPage extends HookConsumerWidget {
     final arguments =
         ModalRoute.of(context)!.settings.arguments as DetailsArguments;
 
-    double getVariation(DetailsArguments arguments) {
-      double hoje = ref.watch(historicoProvider)[0].y;
-      double ontem = ref.watch(historicoProvider)[1].y;
-      return hoje / ontem;
-    }
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -103,11 +97,7 @@ class DetailsPage extends HookConsumerWidget {
             const Divider(thickness: 1),
             DetailsInfoRow(
               title: 'Preço atual',
-              value: numberFormat.format(
-                DecimalIntl(
-                  arguments.cripto.criptoValue,
-                ),
-              ),
+              value: numberFormat.format(ref.watch(valueCriptoProvider)),
             ),
             const Divider(thickness: 1),
             Padding(
@@ -122,7 +112,7 @@ class DetailsPage extends HookConsumerWidget {
                       color: Colors.black45,
                     ),
                   ),
-                  Variationinfo(variation: getVariation(arguments)),
+                  Variationinfo(variation: ref.watch(marketVariationProvider)),
                 ],
               ),
             ),

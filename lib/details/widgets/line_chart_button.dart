@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -21,6 +22,11 @@ class LineChartButton extends HookConsumerWidget {
       height: 25,
       onPressed: () {
         ref.read(selectDaysProvider.state).state = days;
+        ref.read(marketVariationProvider.state).state =
+            ref.watch(historicoProvider)[(days - 1)].y /
+                ref.watch(historicoProvider)[(days - 2)].y;
+        ref.read(valueCriptoProvider.state).state =
+            ref.watch(historicoProvider)[(days - 1)].y;
       },
       child: Text(
         "${days}D",

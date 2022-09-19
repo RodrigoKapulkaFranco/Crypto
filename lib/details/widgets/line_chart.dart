@@ -7,17 +7,10 @@ import 'line_chart_button.dart';
 
 // Adicionar parâmetros do card 5
 class CriptoLineChart extends HookConsumerWidget {
-  CriptoLineChart({super.key});
-
-  late List<FlSpot> historico;
-
-  List<FlSpot> getHistorico(int days) {
-    return historico.sublist(0, days);
-  }
+  const CriptoLineChart({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    historico = ref.watch(historicoProvider);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -46,9 +39,9 @@ class CriptoLineChart extends HookConsumerWidget {
               ),
               lineBarsData: [
                 LineChartBarData(
-                  spots: getHistorico(
-                    ref.watch(selectDaysProvider),
-                  ),
+                  spots: ref
+                      .watch(historicoProvider)
+                      .sublist(0, ref.watch(selectDaysProvider)),
                   isCurved: false,
                   color: const Color.fromRGBO(
                     224,
