@@ -31,6 +31,14 @@ class DetailsPage extends HookConsumerWidget {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         title: const Text("Detalhes"),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pushReplacementNamed(
+              "/portifolio",
+            );
+          },
+        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(
