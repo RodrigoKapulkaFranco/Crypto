@@ -8,6 +8,7 @@ import '../utils/providers/providers.dart';
 import '../widgets/details_convert_button.dart';
 import '../widgets/details_info_row.dart';
 import '../widgets/line_chart.dart';
+import '../widgets/variation_info.dart';
 
 class DetailsPage extends HookConsumerWidget {
   static const routeName = "/details";
@@ -36,7 +37,7 @@ class DetailsPage extends HookConsumerWidget {
           left: 16.0,
           right: 16.0,
           bottom: 16.0,
-          top: 32.0,
+          top: 16.0,
         ),
         physics: const BouncingScrollPhysics(),
         child: Column(
@@ -86,8 +87,8 @@ class DetailsPage extends HookConsumerWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 16.0,
+              padding: const EdgeInsets.only(
+                top: 16.0,
               ),
               child: CriptoLineChart(),
             ),
@@ -102,7 +103,7 @@ class DetailsPage extends HookConsumerWidget {
             ),
             const Divider(thickness: 1),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -113,28 +114,7 @@ class DetailsPage extends HookConsumerWidget {
                       color: Colors.black45,
                     ),
                   ),
-                  getVariation(arguments) == 1
-                      ? const Text(
-                          '0.00%',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )
-                      : getVariation(arguments) > 1
-                          ? Text(
-                              '+${((getVariation(arguments) - 1) * 100).toStringAsFixed(2)}%',
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.green,
-                              ),
-                            )
-                          : Text(
-                              '${((getVariation(arguments) - 1) * 100).toStringAsFixed(2)}%',
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.red,
-                              ),
-                            )
+                  Variationinfo(variation: getVariation(arguments)),
                 ],
               ),
             ),
@@ -155,7 +135,6 @@ class DetailsPage extends HookConsumerWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
             const DetailsConvertButton(),
           ],
         ),

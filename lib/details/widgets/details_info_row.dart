@@ -14,7 +14,7 @@ class DetailsInfoRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        vertical: 8.0,
+        vertical: 4.0,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
