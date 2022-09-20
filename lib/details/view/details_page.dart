@@ -13,14 +13,13 @@ import '../widgets/variation_info.dart';
 
 class DetailsPage extends HookConsumerWidget {
   static const routeName = "/details";
-
-  const DetailsPage({super.key});
+  final DetailsArguments arguments;
+  const DetailsPage({
+    required this.arguments,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final arguments =
-        ModalRoute.of(context)!.settings.arguments as DetailsArguments;
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,

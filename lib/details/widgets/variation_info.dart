@@ -1,3 +1,4 @@
+import 'package:cripto/shared/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class Variationinfo extends StatelessWidget {
@@ -18,7 +19,7 @@ class Variationinfo extends StatelessWidget {
       );
     } else if (variation > 1) {
       return Text(
-        '+${((variation - 1) * 100).toStringAsFixed(2)}%',
+        '+${doubleFormat.format((variation - 1) * 100)}%',
         style: const TextStyle(
           fontWeight: FontWeight.bold,
           color: Colors.green,
@@ -26,7 +27,7 @@ class Variationinfo extends StatelessWidget {
       );
     } else {
       return Text(
-        '${((variation - 1) * 100).toStringAsFixed(2)}%',
+        '${doubleFormat.format((variation - 1) * 100)}%',
         style: const TextStyle(
           fontWeight: FontWeight.bold,
           color: Colors.red,

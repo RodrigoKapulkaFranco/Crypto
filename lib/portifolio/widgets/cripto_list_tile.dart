@@ -95,11 +95,13 @@ class CriptoListTile extends HookConsumerWidget {
         ),
       ),
       onTap: () {
-        Navigator.of(context).pushNamed("/details",
-            arguments: DetailsArguments(
-              cripto: cripto,
-              userAmountCripto: userAmountCripto,
-            ));
+        Navigator.of(context).pushNamed(
+          "/details",
+          arguments: DetailsArguments(
+            cripto: cripto,
+            userAmountCripto: userAmountCripto,
+          ),
+        );
       },
     );
   }
