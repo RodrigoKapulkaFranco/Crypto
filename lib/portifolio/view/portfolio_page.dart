@@ -1,7 +1,8 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/portifolio_body.dart';
+import '../../shared/widgets/bottom_navigator_bar.dart';
+import '../widgets/portifolio_body.dart';
 
 class PortfolioPage extends StatelessWidget {
   const PortfolioPage({Key? key}) : super(key: key);
@@ -24,14 +25,19 @@ class PortfolioPage extends StatelessWidget {
     final userTotalMoney =
         userMoneyBitcoin + userMoneyEthereum + userAmountlitecoin;
 
-    return PortifolioBody(
-      userTotalMoney: userTotalMoney,
-      userMoneyBitcoin: userMoneyBitcoin,
-      userAmountBitcoin: userAmountBitcoin,
-      userMoneyEthereum: userMoneyEthereum,
-      userAmountEthereum: userAmountEthereum,
-      userMoneylitecoin: userMoneylitecoin,
-      userAmountlitecoin: userAmountlitecoin,
+    return Scaffold(
+      body: PortifolioBody(
+        userTotalMoney: userTotalMoney,
+        userMoneyBitcoin: userMoneyBitcoin,
+        userAmountBitcoin: userAmountBitcoin,
+        userMoneyEthereum: userMoneyEthereum,
+        userAmountEthereum: userAmountEthereum,
+        userMoneylitecoin: userMoneylitecoin,
+        userAmountlitecoin: userAmountlitecoin,
+      ),
+      bottomNavigationBar: const CustomBottomNavigatorBar(
+        selectedIndex: 0,
+      ),
     );
   }
 }

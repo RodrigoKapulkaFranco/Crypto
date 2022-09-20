@@ -5,7 +5,8 @@ import 'package:decimal/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../core/utils.dart';
+import '../../shared/utils/utils.dart';
+import '../provider/utils.dart';
 
 class CriptoListTile extends HookConsumerWidget {
   const CriptoListTile({
