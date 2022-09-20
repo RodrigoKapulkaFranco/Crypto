@@ -1,22 +1,26 @@
+import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../shared/repository/get_all_user_amount_cripto_local.dart';
-import '../../shared/repository/get_cripto_local_repo.dart';
+import '../../dio/shared/provider.dart';
+import '../../shared/utils/provider/provider.dart';
 import '../../shared/widgets/loading.dart';
 import 'cripto_list_tile.dart';
 import 'total_user_money_display.dart';
 
-class PortifolioBody extends StatelessWidget {
+class PortifolioBody extends HookConsumerWidget {
   const PortifolioBody({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
         FutureBuilder(
-          future: CriptoLocalRepo.getTotalBalance(),
+          future: ref.watch(
+            totalBalanceProvider(ref.watch(userAmountProvider)).future,
+          ),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return const Loading();
@@ -28,18 +32,20 @@ class PortifolioBody extends StatelessWidget {
         ),
         Expanded(
           child: FutureBuilder(
-            future: Future.wait(
-              [
-                CriptoLocalRepo.getAllCripto(),
-                GetAllUserAmountCriptoLocal.getAllUserAmountCripto(),
-              ],
-            ),
+            future: ref.watch(listCriptoProvider.future),
+            // future: Future.wait(
+            //   [
+            //     CriptoLocalRepo.getAllCripto(),
+            //     GetAllUserAmountCriptoLocal.getAllUserAmountCripto(),
+            //   ],
+            // ),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 return const Loading();
               }
               return ListView.builder(
-                itemCount: snapshot.data![0].length,
+                physics: const BouncingScrollPhysics(),
+                itemCount: snapshot.data!.criptoViewDataList.length,
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
@@ -48,8 +54,11 @@ class PortifolioBody extends StatelessWidget {
                         color: Colors.grey,
                       ),
                       CriptoListTile(
-                        cripto: snapshot.data![0][index],
-                        userAmountCripto: snapshot.data![1][index],
+                        criptoViewData:
+                            snapshot.data!.criptoViewDataList[index],
+                        userAmountCripto: Decimal.parse(
+                          ref.watch(userAmountProvider)[index].toString(),
+                        ),
                       ),
                     ],
                   );

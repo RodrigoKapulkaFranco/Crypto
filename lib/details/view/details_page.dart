@@ -1,20 +1,18 @@
-import 'package:decimal/decimal.dart';
 import 'package:decimal/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../shared/utils/utils.dart';
 import '../utils/details_arguments.dart';
-import '../utils/providers/providers.dart';
 import '../widgets/details_convert_button.dart';
 import '../widgets/details_info_row.dart';
 import '../widgets/line_chart.dart';
-import '../widgets/variation_info.dart';
 
 class DetailsPage extends HookConsumerWidget {
   static const routeName = "/details";
   final DetailsArguments arguments;
   const DetailsPage({
+    super.key,
     required this.arguments,
   });
 
@@ -59,22 +57,18 @@ class DetailsPage extends HookConsumerWidget {
                   borderRadius: BorderRadius.circular(
                     30,
                   ),
-                  child: Image.asset(
+                  child: Image.network(
                     arguments.cripto.imagePath,
+                    scale: 4,
                   ),
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 8.0,
-              ),
-              child: Text(
-                arguments.cripto.subtitle,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black45,
-                ),
+            Text(
+              arguments.cripto.subtitle.toUpperCase(),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black45,
               ),
             ),
             Text(
@@ -95,24 +89,24 @@ class DetailsPage extends HookConsumerWidget {
               child: CriptoLineChart(),
             ),
             const Divider(thickness: 1),
-            DetailsInfoRow(
-              title: 'Preço atual',
-              value: numberFormat.format(ref.watch(valueCriptoProvider)),
-            ),
+            // DetailsInfoRow(
+            //   title: 'Preço atual',
+            //   value: numberFormat.format(ref.watch(valueCriptoProvider)),
+            // ),
             const Divider(thickness: 1),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 4.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
+                children: const [
+                  Text(
                     'Variação 24H',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.black45,
                     ),
                   ),
-                  Variationinfo(variation: ref.watch(marketVariationProvider)),
+                  // Variationinfo(variation: ref.watch(marketVariationProvider)),
                 ],
               ),
             ),
@@ -120,18 +114,18 @@ class DetailsPage extends HookConsumerWidget {
             DetailsInfoRow(
               title: 'Quantidade',
               value: '${arguments.userAmountCripto}'
-                  ' ${arguments.cripto.subtitle}',
+                  ' ${arguments.cripto.subtitle.toUpperCase()}',
             ),
             const Divider(thickness: 1),
-            DetailsInfoRow(
-              title: 'Valor',
-              value: numberFormat.format(
-                DecimalIntl(
-                  Decimal.parse(ref.watch(valueCriptoProvider).toString()) *
-                      arguments.userAmountCripto,
-                ),
-              ),
-            ),
+            // DetailsInfoRow(
+            //   title: 'Valor',
+            //   value: numberFormat.format(
+            //     DecimalIntl(
+            //       Decimal.parse(ref.watch(valueCriptoProvider).toString()) *
+            //           arguments.userAmountCripto,
+            //     ),
+            //   ),
+            // ),
             const DetailsConvertButton(),
           ],
         ),

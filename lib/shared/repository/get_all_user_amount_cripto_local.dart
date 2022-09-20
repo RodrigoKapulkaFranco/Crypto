@@ -11,4 +11,4 @@ class GetAllUserAmountCriptoLocal {
     Decimal.parse('0.94'),
     Decimal.parse('0.82'),
   ];
-}
+} 
