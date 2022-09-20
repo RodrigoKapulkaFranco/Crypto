@@ -1,5 +1,6 @@
-import 'package:cripto/shared/utils/utils.dart';
 import 'package:flutter/material.dart';
+
+import '../../shared/utils/utils.dart';
 
 class Variationinfo extends StatelessWidget {
   final double variation;
