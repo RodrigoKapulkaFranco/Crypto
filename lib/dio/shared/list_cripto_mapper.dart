@@ -2,7 +2,7 @@ import 'package:decimal/decimal.dart';
 
 import '../../shared/model/criptoListViewData.dart';
 import '../../shared/model/criptoViewData.dart';
-import '../repository/responses/cripto_response.dart';
+import '../repository/responses/cripto_coin_list/cripto_response.dart';
 
 extension CriptoCoinMapper on List<CriptoResponse> {
   CriptoListViewData toViewData() {

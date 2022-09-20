@@ -2,8 +2,11 @@ import 'package:decimal/decimal.dart';
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../shared/model/historyListRequisition.dart';
 import '../endpoint/cripto_endpoint.dart';
 import '../repository/cripto_repository_impl.dart';
+import '../repository/responses/history_list/history_response.dart';
+import '../usecases/get_history_list.dart';
 import '../usecases/get_list_cripto_usecase.dart';
 import '../usecases/get_total_balance.dart';
 
@@ -38,6 +41,21 @@ final getTotalBalanceUsecase = Provider(
       criptoRepositoryProvider,
     ),
   ),
+);
+
+final getHistoryListUsecase = Provider(
+  (ref) => GetHistoryListUsecase(
+    repository: ref.watch(
+      criptoRepositoryProvider,
+    ),
+  ),
+);
+
+final historyListProvider =
+    FutureProvider.family<HistoryResponse, HistoryListRequisition>(
+  (ref, requisition) => ref
+      .watch(getHistoryListUsecase)
+      .execute(requisition.id, requisition.time),
 );
 
 final listCriptoProvider = FutureProvider(

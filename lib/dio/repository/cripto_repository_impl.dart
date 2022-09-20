@@ -1,5 +1,6 @@
 import '../endpoint/cripto_endpoint.dart';
-import 'responses/cripto_response.dart';
+import 'responses/cripto_coin_list/cripto_response.dart';
+import 'responses/history_list/history_response.dart';
 
 class CriptoRepositoryImpl {
   final CriptoEndpoint endpoint;
@@ -13,6 +14,13 @@ class CriptoRepositoryImpl {
       result.data.map(
         (item) => CriptoResponse.fromMap(item),
       ),
+    );
+  }
+
+  Future<HistoryResponse> getHistoryList(String id, int time) async {
+    final result = await endpoint.getHistoryCripto(id, time);
+    return HistoryResponse.fromJson(
+      result.data.map(),
     );
   }
 }
