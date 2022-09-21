@@ -2,7 +2,6 @@ import 'package:decimal/decimal.dart';
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../shared/model/history_list_requisition.dart';
 import '../../shared/model/history_list_view_data.dart';
 import '../endpoint/cripto_endpoint.dart';
 import '../repository/cripto_repository_impl.dart';
@@ -51,11 +50,8 @@ final getHistoryListUsecase = Provider(
   ),
 );
 
-final historyListProvider =
-    FutureProvider.family<HistoryListViewData, HistoryListRequisition>(
-  (ref, requisition) => ref
-      .watch(getHistoryListUsecase)
-      .execute(requisition.id, requisition.time),
+final historyListProvider = FutureProvider.family<HistoryListViewData, String>(
+  (ref, id) => ref.watch(getHistoryListUsecase).execute(id),
 );
 
 final listCriptoProvider = FutureProvider(

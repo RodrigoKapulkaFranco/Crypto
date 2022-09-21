@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../dio/shared/provider.dart';
-import '../../shared/model/history_list_requisition.dart';
 import '../../shared/utils/utils.dart';
 import '../../shared/widgets/loading.dart';
 import '../utils/details_arguments.dart';
@@ -29,10 +28,7 @@ class DetailsBody extends HookConsumerWidget {
     return FutureBuilder(
       future: ref.watch(
         historyListProvider(
-          HistoryListRequisition(
-            id: arguments.cripto.id,
-            time: selectedDay,
-          ),
+          arguments.cripto.id,
         ).future,
       ),
       builder: (context, snapshot) {

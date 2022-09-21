@@ -17,8 +17,8 @@ class CriptoRepositoryImpl {
     );
   }
 
-  Future<HistoryResponse> getHistoryList(String id, int time) async {
-    final result = await endpoint.getHistoryCripto(id, time);
+  Future<HistoryResponse> getHistoryList(String id) async {
+    final result = await endpoint.getHistoryCripto(id);
     return HistoryResponse.fromJson(result.data);
   }
 }

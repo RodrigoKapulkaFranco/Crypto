@@ -15,7 +15,7 @@ class CriptoEndpoint {
     );
   }
 
-  Future<Response> getHistoryCripto(String id, int time) {
+  Future<Response> getHistoryCripto(String id) {
     return _dio.get(
         'https://api.coingecko.com/api/v3/coins/$id/market_chart?vs_currency=brl&days=90&interval=daily');
   }

@@ -9,8 +9,8 @@ class GetHistoryListUsecase {
     required this.repository,
   });
 
-  Future<HistoryListViewData> execute(String id, int time) async {
-    HistoryResponse response = await repository.getHistoryList(id, time);
+  Future<HistoryListViewData> execute(String id) async {
+    HistoryResponse response = await repository.getHistoryList(id);
     return response.toViewData();
   }
 }

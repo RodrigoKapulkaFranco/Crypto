@@ -5,7 +5,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../utils/providers/providers.dart';
 import 'line_chart_button.dart';
 
-// Adicionar parâmetros do card 5
 class CriptoLineChart extends HookConsumerWidget {
   final List<FlSpot> history;
   const CriptoLineChart({
