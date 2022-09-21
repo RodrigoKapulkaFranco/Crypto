@@ -1,6 +1,6 @@
 import 'package:decimal/decimal.dart';
 
-import '../model/criptoViewData.dart';
+import '../model/cripto_view_data.dart';
 import 'get_all_user_amount_cripto_local.dart';
 
 class CriptoLocalRepo {

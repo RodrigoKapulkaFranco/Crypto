@@ -12,7 +12,7 @@ final numberFormat = NumberFormat.currency(
   name: "R\$",
 );
 
-final doubleFormat = NumberFormat("###.00", "en_US");
+final doubleFormat = NumberFormat("##0.00", "en_US");
 
 Route<dynamic>? getGenerateRoute(settings) {
   if (settings.name == '/details') {

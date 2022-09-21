@@ -1,4 +1,4 @@
-import '../../shared/model/criptoListViewData.dart';
+import '../../shared/model/cripto_list_view_data.dart';
 import '../repository/cripto_repository_impl.dart';
 import '../shared/list_cripto_mapper.dart';
 

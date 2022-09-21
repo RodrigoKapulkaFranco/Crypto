@@ -4,7 +4,7 @@ part 'history_response.g.dart';
 
 @JsonSerializable()
 class HistoryResponse {
-  final List<List<double>> prices;
+  final List<List<num>> prices;
   HistoryResponse({
     required this.prices,
   });
@@ -14,3 +14,4 @@ class HistoryResponse {
 
   Map<String, dynamic> toJson() => _$HistoryResponseToJson(this);
 }
+

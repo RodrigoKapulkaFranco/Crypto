@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../details/utils/details_arguments.dart';
-import '../../shared/model/criptoViewData.dart';
+import '../../shared/model/cripto_view_data.dart';
 import '../../shared/utils/utils.dart';
 import '../provider/utils.dart';
 

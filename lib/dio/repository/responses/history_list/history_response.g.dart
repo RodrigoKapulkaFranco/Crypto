@@ -9,8 +9,7 @@ part of 'history_response.dart';
 HistoryResponse _$HistoryResponseFromJson(Map<String, dynamic> json) =>
     HistoryResponse(
       prices: (json['prices'] as List<dynamic>)
-          .map((e) =>
-              (e as List<dynamic>).map((e) => (e as num).toDouble()).toList())
+          .map((e) => (e as List<dynamic>).map((e) => e as num).toList())
           .toList(),
     );
 

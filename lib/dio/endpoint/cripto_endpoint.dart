@@ -16,8 +16,7 @@ class CriptoEndpoint {
   }
 
   Future<Response> getHistoryCripto(String id, int time) {
-    int actualDate = DateTime.now().microsecondsSinceEpoch;
     return _dio.get(
-        'https://api.coingecko.com/api/v3/coins/$id/market_chart/range?vs_currency=brl&from=$time&to=$actualDate');
+        'https://api.coingecko.com/api/v3/coins/$id/market_chart?vs_currency=brl&days=90&interval=daily');
   }
 }

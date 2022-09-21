@@ -1,5 +1,5 @@
 class HistoryListViewData {
-  final List<List<double>> prices;
+  final List<List<num>> prices;
   HistoryListViewData({
     required this.prices,
   });
