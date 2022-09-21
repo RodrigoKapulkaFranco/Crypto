@@ -92,7 +92,10 @@ class DetailsBody extends HookConsumerWidget {
                 child: CriptoLineChart(
                   history: List<FlSpot>.from(
                     snapshot.data!.prices.map(
-                      (e) => FlSpot(e[0].toDouble(), e[1] as double),
+                      (e) => FlSpot(
+                        e[0].toDouble(),
+                        e[1] as double,
+                      ),
                     ),
                   ),
                 ),
