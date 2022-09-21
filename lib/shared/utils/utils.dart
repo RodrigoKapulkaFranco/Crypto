@@ -1,4 +1,3 @@
-import 'package:cripto/splash/view/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -6,6 +5,7 @@ import '../../details/utils/details_arguments.dart';
 import '../../details/view/details_page.dart';
 import '../../movements/view/movements_page.dart';
 import '../../portifolio/view/portfolio_page.dart';
+import '../../splash/view/splash_page.dart';
 
 final numberFormat = NumberFormat.currency(
   locale: "pt_BR",
