@@ -4,7 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../dio/shared/provider.dart';
+import '../../dio/shared/providers.dart';
 import '../../shared/utils/utils.dart';
 import '../../shared/widgets/loading.dart';
 import '../utils/details_arguments.dart';
@@ -27,7 +27,7 @@ class DetailsBody extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return FutureBuilder(
       future: ref.watch(
-        historyListProvider(
+        getHistoryProvider(
           arguments.cripto.id,
         ).future,
       ),

@@ -1,9 +1,12 @@
 import 'package:dio/dio.dart';
 
-class CriptoEndpoint {
-  final Dio _dio;
-  CriptoEndpoint(this._dio);
+import 'i_get_cripto_endpoint.dart';
 
+class GetCriptoEndpointImpl implements GetCriptoEndpointInterface {
+  final Dio _dio;
+  GetCriptoEndpointImpl(this._dio);
+
+  @override
   Future<Response> getCriptoCoinList() {
     return _dio.get(
       'https://api.coingecko.com/api/v3/coins/markets?'
@@ -13,10 +16,5 @@ class CriptoEndpoint {
       'celsius-degree-token%2C%20gatechain-token&order=market_cap_desc&per_page=100&'
       'page=1&sparkline=false',
     );
-  }
-
-  Future<Response> getHistoryCripto(String id) {
-    return _dio.get(
-        'https://api.coingecko.com/api/v3/coins/$id/market_chart?vs_currency=brl&days=90&interval=daily');
   }
 }

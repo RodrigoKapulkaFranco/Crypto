@@ -2,7 +2,7 @@ import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../dio/shared/provider.dart';
+import '../../dio/shared/providers.dart';
 import '../../shared/utils/provider/provider.dart';
 import '../../shared/widgets/loading.dart';
 import 'cripto_list_tile.dart';
@@ -19,7 +19,7 @@ class PortifolioBody extends HookConsumerWidget {
       children: [
         FutureBuilder(
           future: ref.watch(
-            totalBalanceProvider(ref.watch(userAmountProvider)).future,
+            getTotalBalanceProvider(ref.watch(userAmountProvider)).future,
           ),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
