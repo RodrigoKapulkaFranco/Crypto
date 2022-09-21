@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Cripto',
-        initialRoute: '/portifolio',
+        initialRoute: '/splash',
         onGenerateRoute: getGenerateRoute,
         theme: ThemeData(
           primaryColor: const Color.fromRGBO(224, 43, 87, 1),

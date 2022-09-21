@@ -1,3 +1,4 @@
+import 'package:cripto/splash/view/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -27,6 +28,10 @@ Route<dynamic>? getGenerateRoute(settings) {
   } else if (settings.name == '/portifolio') {
     return MaterialPageRoute(
       builder: (context) => const PortfolioPage(),
+    );
+  } else if (settings.name == '/splash') {
+    return MaterialPageRoute(
+      builder: (context) => const SplashPage(),
     );
   }
   return null;
