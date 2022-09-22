@@ -1,79 +1,64 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../shared/utils/providers/provider.dart';
+import '../../shared/widgets/loading.dart';
+import '../controller/providers.dart';
 import 'cripto_list_tile.dart';
 import 'total_user_money_display.dart';
 
-class PortifolioBody extends StatelessWidget {
+class PortifolioBody extends HookConsumerWidget {
   const PortifolioBody({
     Key? key,
-    required this.userTotalMoney,
-    required this.userMoneyBitcoin,
-    required this.userAmountBitcoin,
-    required this.userMoneyEthereum,
-    required this.userAmountEthereum,
-    required this.userMoneylitecoin,
-    required this.userAmountlitecoin,
   }) : super(key: key);
 
-  final Decimal userTotalMoney;
-  final Decimal userMoneyBitcoin;
-  final Decimal userAmountBitcoin;
-  final Decimal userMoneyEthereum;
-  final Decimal userAmountEthereum;
-  final Decimal userMoneylitecoin;
-  final Decimal userAmountlitecoin;
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
-        TotalUserMoneyDisplay(
-          userTotalMoney: userTotalMoney,
+        FutureBuilder(
+          future: ref.watch(
+            getTotalBalanceProvider(ref.watch(userAmountProvider)).future,
+          ),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return const Loading();
+            }
+            return TotalUserMoneyDisplay(
+              userTotalMoney: snapshot.data!,
+            );
+          },
         ),
         Expanded(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            shrinkWrap: true,
-            children: [
-              const Divider(
-                color: Colors.grey,
-                thickness: 1,
-              ),
-              CriptoListTile(
-                title: "BTC",
-                subtitle: "Bitcoin",
-                image: Image.asset("images/BTC.png"),
-                userMoneyBitcoin: userMoneyBitcoin,
-                userAmountBitcoin: userAmountBitcoin,
-              ),
-              const Divider(
-                color: Colors.grey,
-                thickness: 1,
-              ),
-              CriptoListTile(
-                title: "ETH",
-                subtitle: "Ethereum",
-                image: Image.asset("images/ETH.png"),
-                userMoneyBitcoin: userMoneyEthereum,
-                userAmountBitcoin: userAmountEthereum,
-              ),
-              const Divider(
-                color: Colors.grey,
-                thickness: 1,
-              ),
-              CriptoListTile(
-                title: "LTC",
-                subtitle: "Litecoin",
-                image: Image.asset("images/LTC.png"),
-                userMoneyBitcoin: userMoneylitecoin,
-                userAmountBitcoin: userAmountlitecoin,
-              ),
-              const Divider(
-                color: Colors.grey,
-                thickness: 1,
-              ),
-            ],
+          child: FutureBuilder(
+            future: ref.watch(listCriptoProvider.future),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) {
+                return const Loading();
+              }
+              return ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemCount: snapshot.data!.criptoViewDataList.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      const Divider(
+                        thickness: 1,
+                        color: Colors.grey,
+                      ),
+                      CriptoListTile(
+                        criptoViewData:
+                            snapshot.data!.criptoViewDataList[index],
+                        userAmountCripto: Decimal.parse(
+                          ref.watch(userAmountProvider)[index].toString(),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
           ),
         ),
       ],
