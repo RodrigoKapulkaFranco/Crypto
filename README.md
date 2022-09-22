@@ -28,6 +28,6 @@ Adicionada uma página de detalhes para cada criptomoeda. A navegação para est
 
 Foi implementado a requisição de API (coingecko), todos as páginas (com exceção das extras e não implementadas) estão realizando requisições. A lista de cripto moedas vem por requisição (Sempre as mesmas moedas) e os dados do gráfico também. Nesse card foi utilizado os pacotes DIO, Build runner e JsonSerialization. Também houve uma refatoração na arquitetura do projeto para se assemelhar mais ao exemplo dado no card 3.
 
-### Bônus: Foi adicionda uma splash screen com animações de opacidade ao projeto.
+### Bônus: Foi adicionada uma splash screen com animações de opacidade ao projeto e também foram adicionadas novas cripto moedas a tela de portfólio.
 
 ## Link do figma: https://www.figma.com/file/aB3rbJ4RaCxBnG3SOCalgQ/Desafio-de-Flutter?node-id=0%3A1
