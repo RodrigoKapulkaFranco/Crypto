@@ -1,12 +1,9 @@
-import 'dart:ui';
-
 import 'package:decimal/decimal.dart';
-import 'package:decimal/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../shared/utils/utils.dart';
-import '../utils/visible_provider.dart';
+import 'header_total_user_money.dart';
+import 'visibility_money_display.dart';
 
 class TotalUserMoneyDisplay extends HookConsumerWidget {
   final Decimal userTotalMoney;
@@ -17,8 +14,6 @@ class TotalUserMoneyDisplay extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final visible = ref.watch(visibleProvider);
-
     return Padding(
       padding: const EdgeInsets.only(
         left: 16.0,
@@ -27,68 +22,19 @@ class TotalUserMoneyDisplay extends HookConsumerWidget {
         bottom: 20.0,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Cripto",
-                    style: TextStyle(
-                      color: Theme.of(context).primaryColor,
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      ref.read(visibleProvider.state).state = !visible;
-                    },
-                    icon: visible
-                        ? const Icon(Icons.visibility)
-                        : const Icon(Icons.visibility_off),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Visibility(
-                visible: visible,
-                replacement: ImageFiltered(
-                  imageFilter: ImageFilter.blur(
-                    sigmaX: 15,
-                    sigmaY: 15,
-                  ),
-                  child: Text(
-                    numberFormat.format(
-                      DecimalIntl(userTotalMoney),
-                    ),
-                    style: const TextStyle(
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                child: Text(
-                  numberFormat.format(
-                    DecimalIntl(userTotalMoney),
-                  ),
-                  style: const TextStyle(
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              const Text(
-                "Valor total de moedas",
-                style: TextStyle(
-                  color: Colors.black45,
-                  fontSize: 18,
-                ),
-              ),
-            ],
+          const HeaderTotalUserMoney(),
+          const SizedBox(height: 10),
+          VisibilityMoneyDisplay(
+            userTotalMoney: userTotalMoney,
+          ),
+          const Text(
+            "Valor total de moedas",
+            style: TextStyle(
+              color: Colors.black45,
+              fontSize: 18,
+            ),
           ),
         ],
       ),

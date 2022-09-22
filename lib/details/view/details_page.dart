@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../utils/details_arguments.dart';
-import '../utils/providers/providers.dart';
 import '../widgets/details_body.dart';
 
 class DetailsPage extends HookConsumerWidget {
@@ -15,7 +14,6 @@ class DetailsPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedDay = ref.watch(selectDaysProvider);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -32,7 +30,6 @@ class DetailsPage extends HookConsumerWidget {
       ),
       body: DetailsBody(
         arguments: arguments,
-        selectedDay: selectedDay,
       ),
     );
   }
