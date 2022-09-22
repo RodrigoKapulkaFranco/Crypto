@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../shared/utils/utils.dart';
-import '../provider/utils.dart';
+import '../utils/visible_provider.dart';
 
 class TotalUserMoneyDisplay extends HookConsumerWidget {
   final Decimal userTotalMoney;

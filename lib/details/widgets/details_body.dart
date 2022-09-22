@@ -4,9 +4,9 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../dio/shared/providers.dart';
 import '../../shared/utils/utils.dart';
 import '../../shared/widgets/loading.dart';
+import '../controller/providers.dart';
 import '../utils/details_arguments.dart';
 import 'details_convert_button.dart';
 import 'details_info_row.dart';

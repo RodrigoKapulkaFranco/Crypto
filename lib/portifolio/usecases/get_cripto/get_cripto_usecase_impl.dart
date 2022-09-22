@@ -1,6 +1,6 @@
-import '../../../shared/model/cripto_list_view_data.dart';
+import '../../model/cripto_list_view_data.dart';
 import '../../repository/get_cripto/i_get_cripto_repo.dart';
-import '../../shared/mapper/list_cripto_mapper.dart';
+import '../../utils/mapper/list_cripto_mapper.dart';
 import 'i_get_cripto_usecase.dart';
 
 class GetCriptoUsecaseImpl implements GetCriptoUsecaseInterface {

@@ -2,9 +2,9 @@ import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../dio/shared/providers.dart';
-import '../../shared/utils/provider/provider.dart';
+import '../../shared/utils/providers/provider.dart';
 import '../../shared/widgets/loading.dart';
+import '../controller/providers.dart';
 import 'cripto_list_tile.dart';
 import 'total_user_money_display.dart';
 
@@ -33,12 +33,6 @@ class PortifolioBody extends HookConsumerWidget {
         Expanded(
           child: FutureBuilder(
             future: ref.watch(listCriptoProvider.future),
-            // future: Future.wait(
-            //   [
-            //     CriptoLocalRepo.getAllCripto(),
-            //     GetAllUserAmountCriptoLocal.getAllUserAmountCripto(),
-            //   ],
-            // ),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 return const Loading();

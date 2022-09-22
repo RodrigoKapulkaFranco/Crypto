@@ -1,5 +1,5 @@
-import '../../../shared/model/history_list_view_data.dart';
-import '../../repository/responses/history_list/history_response.dart';
+import '../../model/history_list_view_data.dart';
+import '../../model/responses/history_list/history_response.dart';
 
 extension CriptoHistoryMapper on HistoryResponse {
   HistoryListViewData toViewData() {

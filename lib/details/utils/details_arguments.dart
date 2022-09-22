@@ -1,6 +1,6 @@
 import 'package:decimal/decimal.dart';
 
-import '../../shared/model/cripto_view_data.dart';
+import '../../portifolio/model/cripto_view_data.dart';
 
 class DetailsArguments {
   final CriptoViewData cripto;

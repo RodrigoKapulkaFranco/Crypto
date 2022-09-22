@@ -1,5 +1,5 @@
 import '../../endpoint/get_history/i_get_history_endpoint.dart';
-import '../responses/history_list/history_response.dart';
+import '../../model/responses/history_list/history_response.dart';
 import 'i_get_history_repo.dart';
 
 class GetHistoryRepoImpl implements GetHistoryRepoInterface {
