@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../shared/utils/utils.dart';
 
-class Variationinfo extends StatelessWidget {
+class VariationInfo extends StatelessWidget {
   final double variation;
-  const Variationinfo({
+  const VariationInfo({
     Key? key,
     required this.variation,
   }) : super(key: key);
