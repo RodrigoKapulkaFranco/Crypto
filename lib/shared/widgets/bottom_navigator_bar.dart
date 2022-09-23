@@ -10,17 +10,19 @@ class CustomBottomNavigatorBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void onItemTapped(int index) {
-      switch (index) {
-        case 0:
-          Navigator.of(context).pushReplacementNamed(
-            "/portifolio",
-          );
-          break;
-        case 1:
-          Navigator.of(context).pushReplacementNamed(
-            "/movements",
-          );
-          break;
+      if (index != selectedIndex) {
+        switch (index) {
+          case 0:
+            Navigator.of(context).pushReplacementNamed(
+              "/portfolio",
+            );
+            break;
+          case 1:
+            Navigator.of(context).pushReplacementNamed(
+              "/movements",
+            );
+            break;
+        }
       }
     }
 
@@ -28,7 +30,7 @@ class CustomBottomNavigatorBar extends StatelessWidget {
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: ImageIcon(
-            AssetImage("images/WARREN-LOGO.png"),
+            AssetImage("images/LOGO.png"),
           ),
           label: 'Portifólio',
         ),

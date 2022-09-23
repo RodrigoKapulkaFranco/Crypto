@@ -5,9 +5,12 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../utils/providers/providers.dart';
 import 'line_chart_button.dart';
 
-// Adicionar parâmetros do card 5
 class CriptoLineChart extends HookConsumerWidget {
-  const CriptoLineChart({super.key});
+  final List<FlSpot> history;
+  const CriptoLineChart({
+    super.key,
+    required this.history,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -39,9 +42,10 @@ class CriptoLineChart extends HookConsumerWidget {
               ),
               lineBarsData: [
                 LineChartBarData(
-                  spots: ref
-                      .watch(historicoProvider)
-                      .sublist(0, ref.watch(selectDaysProvider)),
+                  spots: history.sublist(
+                    0,
+                    ref.watch(selectDaysProvider),
+                  ),
                   isCurved: false,
                   color: const Color.fromRGBO(
                     224,
