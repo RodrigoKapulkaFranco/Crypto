@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../shared/widgets/bottom_navigator_bar.dart';
-import '../widgets/portifolio_body.dart';
+import '../widgets/portfolio_body.dart';
 
 class PortfolioPage extends StatelessWidget {
   const PortfolioPage({Key? key}) : super(key: key);

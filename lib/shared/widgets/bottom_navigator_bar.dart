@@ -14,7 +14,7 @@ class CustomBottomNavigatorBar extends StatelessWidget {
         switch (index) {
           case 0:
             Navigator.of(context).pushReplacementNamed(
-              "/portifolio",
+              "/portfolio",
             );
             break;
           case 1:

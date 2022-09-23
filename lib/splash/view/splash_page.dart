@@ -13,7 +13,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 4)).then((value) {
-      Navigator.of(context).pushReplacementNamed('/portifolio');
+      Navigator.of(context).pushReplacementNamed('/portfolio');
     });
     Future.delayed(const Duration(seconds: 1)).then((value) {
       setState(() {
