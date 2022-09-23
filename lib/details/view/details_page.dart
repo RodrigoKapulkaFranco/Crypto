@@ -23,7 +23,7 @@ class DetailsPage extends HookConsumerWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.of(context).pushReplacementNamed(
-              "/portifolio",
+              "/portfolio",
             );
           },
         ),

@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import '../../details/utils/details_arguments.dart';
 import '../../details/view/details_page.dart';
 import '../../movements/view/movements_page.dart';
-import '../../portifolio/view/portfolio_page.dart';
+import '../../portfolio/view/portfolio_page.dart';
 import '../../splash/view/splash_page.dart';
 
 final numberFormat = NumberFormat.currency(
@@ -25,7 +25,7 @@ Route<dynamic>? getGenerateRoute(settings) {
     return MaterialPageRoute(
       builder: (context) => const MovementsPage(),
     );
-  } else if (settings.name == '/portifolio') {
+  } else if (settings.name == '/portfolio') {
     return MaterialPageRoute(
       builder: (context) => const PortfolioPage(),
     );
